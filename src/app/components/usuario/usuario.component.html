@@ -17,13 +17,13 @@
                 <input type="text" name="usuario" #usuario="ngModel" [(ngModel)]="usuarioService.selectedUsuario.usuario" placeholder="Ingresa tu usuario">
               </div>
               <div class="input-field col-s12">
-                <input type="password" name="contrasena" #contrasena="ngModel" [(ngModel)]="usuarioService.selectedUsuario.contrasena" placeholder="Ingresa tu contraseña">
+                <input type="password" name="password" #contrasena="ngModel" [(ngModel)]="usuarioService.selectedUsuario.password" placeholder="Ingresa tu contraseña">
               </div>
               
               
               <div class="card-action">
                 <div class="input-field col-s12">
-                  <button class="btn right" style="margin-left: 2px;" (click)="resetForm(tipohabForm)">Limpiar</button>
+                  <button class="btn right" style="margin-left: 2px;" (click)="resetForm(usuarioForm)">Limpiar</button>
                   <button class="btn right">Guardar</button>
                 </div>
               </div>

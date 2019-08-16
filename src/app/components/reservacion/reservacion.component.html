@@ -8,7 +8,7 @@
             <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="reservacionService.selectedReservacion._id">
             <div class="row">
               <div class="input-field col-s12">
-                <input type="text" name="Nombre" #Nombre="ngModel" [(ngModel)]="reservacionService.selectedReservacion.nombre" placeholder="Ingresa tu nombre">
+                <input type="text" name="Nombre" #Nombre="ngModel" [(ngModel)]="reservacionService.selectedReservacion.Nombre" placeholder="Ingresa tu nombre">
               </div>
               <div class="input-field col-s12">
                 <input type="text" name="Telefono" #Telefono="ngModel" [(ngModel)]="reservacionService.selectedReservacion.Telefono" placeholder="Ingresa tu numero de Telefono">
@@ -23,7 +23,7 @@
                 <input type="text" class="datepicker" name="FechaSal" #FechaSal="ngModel" [(ngModel)]="reservacionService.selectedReservacion.FechaSal" placeholder="Ingresa la fecha de salida">
               </div>
               <div class="input-field col s12">
-                <select type="text" name="TipHab" #TipHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.TipoHab">
+                <select type="text" name="TipHab" #TipHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.TipHab">
                   <option value="" disabled selected>Elegir Tipo de habitacion</option>
                   <option value="King size">King size</option>
                   <option value="Presidencial">Presidencial</option>
