@@ -9,7 +9,8 @@ export class OfertaService {
 
   selectedOferta: Oferta;
   ofertas: Oferta[];
-  readonly URL_API = 'http://localhost:3000/api/ofertas';
+  //readonly URL_API = 'http://localhost:3000/api/ofertas';
+  readonly URL_API = '/api/ofertas';
 
   constructor(public http: HttpClient) { 
     this.selectedOferta = new Oferta();

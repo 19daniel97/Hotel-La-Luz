@@ -11,7 +11,9 @@ export class ContactoService {
   selectedContacto: Contacto;
   contactos: Contacto[];
   
-  readonly URL_API = 'http://localhost:3000/api/contactos';
+  //readonly URL_API = 'http://localhost:3000/api/contactos';
+  readonly URL_API = '/api/contactos';
+
 
   constructor(public http: HttpClient) {
     this.selectedContacto = new Contacto();

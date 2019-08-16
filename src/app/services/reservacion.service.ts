@@ -11,7 +11,8 @@ export class ReservacionService {
   selectedReservacion: Reservacion;
   reservaciones: Reservacion[];
   
-  readonly URL_API = 'http://localhost:3000/api/reservaciones';
+  //readonly URL_API = 'http://localhost:3000/api/reservaciones';
+  readonly URL_API = '/api/reservaciones';
 
   constructor(public http: HttpClient) {
     this.selectedReservacion = new Reservacion();

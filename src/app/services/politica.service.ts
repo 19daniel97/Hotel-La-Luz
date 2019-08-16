@@ -11,7 +11,8 @@ export class PoliticaService {
   selectedPolitica: Politica;
   politicas: Politica[];
   
-  readonly URL_API = 'http://localhost:3000/api/politicas';
+  //readonly URL_API = 'http://localhost:3000/api/politicas';
+  readonly URL_API = '/api/politicas';
 
   constructor(public http: HttpClient) {
     this.selectedPolitica = new Politica();

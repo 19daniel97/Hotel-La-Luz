@@ -10,7 +10,9 @@ export class InfogenService {
   selectedInfogen: Infogen;
   infogen: Infogen[];
   
-  readonly URL_API = 'http://localhost:3000/api/infogen';
+  //readonly URL_API = 'http://localhost:3000/api/infogen';
+  readonly URL_API = '/api/infogen';
+
 
   constructor(public http: HttpClient) {
     this.selectedInfogen = new Infogen();

@@ -11,7 +11,9 @@ export class TipohabService {
   selectedTipohab: Tipohab;
   tipohab: Tipohab[];
   
-  readonly URL_API = 'http://localhost:3000/api/tipohab';
+  //readonly URL_API = 'http://localhost:3000/api/tipohab';
+  readonly URL_API = '/api/tipohab';
+
 
   constructor(public http: HttpClient) {
     this.selectedTipohab = new Tipohab();

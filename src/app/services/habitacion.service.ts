@@ -11,7 +11,8 @@ export class HabitacionService {
   selectedHabitacion: Habitacion;
   habitaciones: Habitacion[];
   
-  readonly URL_API = 'http://localhost:3000/api/habitaciones';
+  //readonly URL_API = 'http://localhost:3000/api/habitaciones';
+  readonly URL_API = '/api/habitaciones';
 
   constructor(public http: HttpClient) {
     this.selectedHabitacion = new Habitacion();

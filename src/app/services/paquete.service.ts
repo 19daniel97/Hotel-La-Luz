@@ -9,7 +9,9 @@ export class PaqueteService {
 
   selectedPaquete: Paquete;
   paquetes: Paquete[];
-  readonly URL_API = 'http://localhost:3000/api/paquetes';
+  //readonly URL_API = 'http://localhost:3000/api/paquetes';
+  readonly URL_API = '/api/paquetes';
+
 
   constructor(public http: HttpClient) {
     this.selectedPaquete = new Paquete();

@@ -17,8 +17,10 @@ export class UsuarioService {
   };
   usuario: Usuario[];
 
-  readonly URL_API = 'http://localhost:3000/api/usuario';
-  readonly URL = 'http://localhost:3000/api';
+  //readonly URL_API = 'http://localhost:3000/api/usuario';
+  //readonly URL = 'http://localhost:3000/api';
+  readonly URL_API = '/api/usuario';
+  readonly URL = '/api';
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
   

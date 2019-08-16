@@ -11,7 +11,8 @@ export class AtraccionService {
   selectedAtraccion: Atraccion;
   atracciones: Atraccion[];
   
-  readonly URL_API = 'http://localhost:3000/api/atracciones';
+  //readonly URL_API = 'http://localhost:3000/api/atracciones';
+  readonly URL_API = '/api/atracciones';
 
   constructor(public http: HttpClient) {
     this.selectedAtraccion = new Atraccion();

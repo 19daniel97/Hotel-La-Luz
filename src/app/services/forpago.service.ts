@@ -16,7 +16,8 @@ export class ForpagoService {
 
   public forpagos$ = new Subject<Forpago[]>();
   
-  readonly URL_API = 'http://localhost:3000/api/forpago';
+  //readonly URL_API = 'http://localhost:3000/api/forpago';
+  readonly URL_API = '/api/forpago';
 
   constructor(public http: HttpClient) { 
     this.selectedForpago = new Forpago();
