@@ -1,6 +1,7 @@
 require('./config/config');
 require('./database');
 require('./config/passportConfig');
+require("dotenv").config();
 
 
 const express = require('express');
