@@ -1,0 +1,98 @@
+<app-index></app-index>
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <form #atraccionForm="ngForm" (ngSubmit)="addAtraccion(atraccionForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="atraccionService.selectedAtraccion._id">
+            <div class="row">
+
+              <div class="input-field col-s12">
+                <input type="file" name="img" #url="ngModel" [(ngModel)]="atraccionService.selectedAtraccion.img"
+                  placeholder="Ingresa la imagen">
+              </div>
+
+              <!--
+                <div class="input-field col s12">
+                  <select type="text" name="nombre" #name="ngModel" [(ngModel)]="atraccionService.selectedAtraccion.nombre">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                  <label>****</label>
+                </div>
+             <div class="input-field col s12">
+              <select class="form-control" 
+                    [(ngModel)]="contactoService.selectedContacto._id"
+                    formControlName="contacto">
+                    <option value='-1'>{{"select a contacto" | translate}}</option>
+                        <option 
+                        *ngFor="let contacto of contactoService.contactos"
+                        value="{{contacto.id}}">
+                        {{contacto.email}}
+                     </option>
+              </select>
+            </div>-->
+
+              <div class="input-field col s12">
+                <select name="contacto" [(ngModel)]="contactoService">
+                 
+                  <option 
+      
+                  *ngFor="let contacto of contactoService.contactos" 
+                  [ngValue]="contacto">{{ contacto.email }}</option>
+                </select>
+                <label>****</label>
+              </div>
+            
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea1" class="materialize-textarea" type="text" name="contenido" #name="ngModel"
+                    [(ngModel)]="atraccionService.selectedAtraccion.contenido"
+                    placeholder="Ingresa el contenido"></textarea>
+
+                </div>
+              </div>
+
+              <div class="card-action">
+                <div class="input-field col-s12">
+                  <button class="btn right" style="margin-left: 2px;" (click)="resetForm(atraccionForm)">Clean</button>
+                  <button class="btn right">Save</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+      <table class="striped highlight black-text">
+        <thead>
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Contenido</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let atraccion of atraccionService.atracciones">
+            <td>{{ atraccion.img }}</td>
+            <td>{{ atraccion.nombre }}</td>
+            <td>{{ atraccion.contenido }}</td>
+
+
+            <td>
+              <a (click)="editAtraccion(atraccion)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteAtraccion(atraccion._id, atraccionForm)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

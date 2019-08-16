@@ -1,0 +1,59 @@
+<app-index></app-index>
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <form #paqueteForm="ngForm" (ngSubmit)="addPaquete
+          (paqueteForm)">
+          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]
+          ="paqueteService.selectedPaquete._id">
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" name="name" #name="ngModel" [(ngModel)]="paqueteService.selectedPaquete.name" placeholder="Enter pack Name">
+            </div>
+            <div class="input-field col s12">
+                <!---<input type="text" name="characteristics" #characteristics="ngModel" [(ngModel)]="paqueteService.selectedPaquete.characteristics" placeholder="Enter the characteristics">-->
+              <textarea name="characteristics" cols="30" rows="10" #characteristics="ngModel" [(ngModel)]="paqueteService.selectedPaquete.characteristics" placeholder="Enter The characteristics"></textarea>
+            </div>
+            <div class="input-field col s12">
+              <input type="text" name="prize" #prize="ngModel" [(ngModel)]="paqueteService.selectedPaquete.prize" placeholder="Enter the prize">
+            </div>
+            <div class="card-action"> 
+              <div class="input-field col s12">
+                  <button class="btn right" (click)="reset(paqueteForm)">Clean</button>
+                <button class="btn right" style="margin-left: 2px">Save</button>
+              </div>
+              </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+        <table>
+            <thead>
+              <th>Name</th>
+              <th>characteristics</th>
+              <th>prize</th>
+              <th>Operations</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let paquete of paqueteService.paquetes">
+                <td>{{paquete.name}}</td>
+                <td>{{paquete.characteristics}}</td>
+                <td>{{paquete.prize}}</td>
+                <td>
+                  <a (click)="editPaquete(paquete)">
+                    <i class="material-icons">edit</i>
+                  </a>
+                  <a (click)="deletePaquete(paquete._id)">
+                      <i class="material-icons">delete</i>
+                    </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+</div>

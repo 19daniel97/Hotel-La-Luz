@@ -1,0 +1,94 @@
+<app-index></app-index>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#test1">Registro</a> </li>
+        <li class="tab col s3"><a class="active" href="#test2">Lista</a> </li>
+      </ul>
+    </div>
+
+    <div id="test1" class="col s12">
+      <div class="card">
+        <div class="card-content">
+          <form #contactoForm="ngForm" (ngSubmit)="addContacto(contactoForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="contactoService.selectedContacto._id">
+            <div class="row">
+
+              <div class="input-field col-s12">
+                <input type="file" name="img" #url="ngModel" [(ngModel)]="contactoService.selectedContacto.img"
+                  placeholder="Ingresa la imagen">
+              </div>
+
+
+              <div class="input-field col-s12">
+                <input type="text" name="nombre" #name="ngModel" [(ngModel)]="contactoService.selectedContacto.nombre"
+                  placeholder="Ingresa el nombre">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="email" #name="ngModel" [(ngModel)]="contactoService.selectedContacto.email"
+                  placeholder="Ingresa el nombre">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="telefono" #name="ngModel"
+                  [(ngModel)]="contactoService.selectedContacto.telefono" placeholder="Ingresa el nombre">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="ocupacion" #name="ngModel"
+                  [(ngModel)]="contactoService.selectedContacto.ocupacion" placeholder="Ingresa el nombre">
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea1" class="materialize-textarea" type="text" name="infadi" #name="ngModel"
+                    [(ngModel)]="contactoService.selectedContacto.infadi" placeholder="Ingresa el contenido"></textarea>
+
+                </div>
+              </div>
+
+              <div class="card-action">
+                <div class="input-field col-s12">
+                  <button class="btn right" style="margin-left: 2px;" (click)="resetForm(contactoForm)">Clean</button>
+                  <button class="btn right">Save</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="test2" class="col s12">
+      <div class="col s7">
+        <table class="striped highlight black-text">
+          <thead>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Ocupacion</th>
+            <th>Informacion adicional</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let contacto of contactoService.contactos">
+              <td>{{ contacto.img }}</td>
+              <td>{{ contacto.nombre }}</td>
+              <td>{{ contacto.email }}</td>
+              <td>{{ contacto.telefono }}</td>
+              <td>{{ contacto.ocupacion }}</td>
+              <td>{{ contacto.infadi }}</td>
+
+              <td>
+                <a (click)="editContacto(contacto)">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="deleteContacto(contacto._id, contactoForm)">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

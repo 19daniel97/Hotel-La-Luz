@@ -1,0 +1,64 @@
+<app-index></app-index>
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <form #reservacionForm="ngForm" (ngSubmit)="addReservacion(reservacionForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="reservacionService.selectedReservacion._id">
+            <div class="row">
+              <div class="input-field col-s12">
+                <input type="text" name="Nombre" #Nombre="ngModel" [(ngModel)]="reservacionService.selectedReservacion.nombre" placeholder="Ingresa tu nombre">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="Telefono" #Telefono="ngModel" [(ngModel)]="reservacionService.selectedReservacion.Telefono" placeholder="Ingresa tu numero de Telefono">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="Email" #Email="ngModel" [(ngModel)]="reservacionService.selectedReservacion.Email" placeholder="Ingresa tu E-mail">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" class="datepicker" name="FechaEnt" #FechaEnt="ngModel" [(ngModel)]="reservacionService.selectedReservacion.FechaEnt" placeholder="Ingresa la fecha de entrada">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" class="datepicker" name="FechaSal" #FechaSal="ngModel" [(ngModel)]="reservacionService.selectedReservacion.FechaSal" placeholder="Ingresa la fecha de salida">
+              </div>
+              <div class="input-field col s12">
+                <select type="text" name="TipHab" #TipHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.TipoHab">
+                  <option value="" disabled selected>Elegir Tipo de habitacion</option>
+                  <option value="King size">King size</option>
+                  <option value="Presidencial">Presidencial</option>
+                  <option value="Matrimonial">Matrimonial</option>
+                </select>
+                <label>Tipo de habitacion</label>
+              </div>
+
+              <div class="input-field col s12">
+                <select type="text" name="NumHab" #NumHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.NumHab">
+                  <option value="" disabled selected>Elige una opcion</option>
+                  <option value="1">#1</option>
+                  <option value="2">#2</option>
+                  <option value="3">#3</option>
+                  <option value="4">#4</option>
+                  <option value="5">#5</option>
+                  <option value="6">#6</option>
+                </select>
+                <label>Numero de Habitacion Disponible</label>
+              </div>
+      
+              <div class="input-field col-s12">
+                <input type="text" name="RegAlo" #RegAlo="ngModel" [(ngModel)]="reservacionService.selectedReservacion.RegAlo" placeholder="Selecciona el Regimen de alojamiento">
+              </div>
+                <div class="card-action">
+                <div class="input-field col-s12">
+                  <button class="btn right" style="margin-left: 2px;" (click)="resetForm(reservacionForm)">Clean</button>
+                  <button class="btn right">Save</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

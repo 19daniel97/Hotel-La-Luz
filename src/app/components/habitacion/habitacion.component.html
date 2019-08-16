@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <form #habitacionForm="ngForm" (ngSubmit)="addHabitacion(habitacionForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="habitacionService.selectedHabitacion._id">
+            <div class="row">
+              <div class="input-field col-s12">
+                <input type="text" name="numeroh" #name="ngModel" [(ngModel)]="habitacionService.selectedHabitacion.numeroh" placeholder="Ingresa el numero de habitacion">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="numeroc" #name="ngModel" [(ngModel)]="habitacionService.selectedHabitacion.numeroc" placeholder="Ingresa el numero de camas">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="precio" #name="ngModel" [(ngModel)]="habitacionService.selectedHabitacion.precio" placeholder="Ingresa el precio">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="tipoh" #name="ngModel" [(ngModel)]="habitacionService.selectedHabitacion.tipoh" value="0" placeholder="Ingresa tipo de habitacion">
+              </div>
+                
+              <div class="input-field col-s12">
+                <input type="text" name="descripcion" #name="ngModel" [(ngModel)]="habitacionService.selectedHabitacion.descripcion" value="0" placeholder="Ingresa la descripcion">
+              </div>
+              <div class="card-action">
+                <div class="input-field col-s12">
+                  <button class="btn right" style="margin-left: 2px;" (click)="resetForm(habitacionForm)">Clean</button>
+                  <button class="btn right">Save</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+      <table class="striped highlight black-text">
+        <thead>
+          <th>Numero de habitacion</th>
+          <th>Numero de camas</th>
+          <th>Precio</th>
+          <th>Tipo de habitacion</th>
+          <th>Descripcion</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let habitacion of habitacionService.habitaciones">
+            <td>{{ habitacion.numeroh }}</td>
+            <td>{{ habitacion.numeroc }}</td>
+            <td>{{ habitacion.precio }}</td>
+            <td>{{ habitacion.tipoh }}</td>
+            <td>{{ habitacion.descripcion }}</td>
+            
+            <td>
+              <a (click)="editHabitacion(habitacion)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteHabitacion(habitacion._id, habitacionForm)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

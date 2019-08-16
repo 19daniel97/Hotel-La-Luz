@@ -1,0 +1,56 @@
+<app-index></app-index>
+
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <form #forpagoForm="ngForm" (ngSubmit)="addForpago(forpagoForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="forpagoService.selectedForpago._id">
+            <div class="row">
+              <div class="input-field col-s12">
+                <input type="text" name="forpago" #forpago="ngModel" [(ngModel)]="forpagoService.selectedForpago.forpago" placeholder="Ingresa la forma de pago">
+              </div>
+              <div class="input-field col-s12">
+                <!--<input type="text" name="descripcion" #descripcion="ngModel" [(ngModel)]="tipohabService.selectedTipohab.descripcion" placeholder="Ingresa la descripción"> -->
+                <textarea id="textarea1" class="materialize-textarea" name="descripcion" #descripcion="ngModel" [(ngModel)]="forpagoService.selectedForpago.descripcion" placeholder="Ingresa la descripción"></textarea>
+              </div>
+              
+              <div class="card-action">
+                <div class="input-field col-s12">
+                  <button class="btn right" style="margin-left: 2px;" (click)="resetForm(forpagoForm)">Limpiar</button>
+                  <button class="btn right">Guardar</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+      <table class="striped highlight black-text">
+        <thead>
+          <th>Forma de pago</th>
+          <th>Descripción</th>
+          <th>Operaciones</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let forpago of forpagoService.forpago">
+            <td>{{ forpago.forpago }}</td>
+            <td>{{ forpago.descripcion }}</td>
+            <td>
+              <a (click)="editForpago(forpago)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteForpago(forpago._id, forpagoForm)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+

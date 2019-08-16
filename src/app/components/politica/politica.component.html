@@ -1,0 +1,61 @@
+<app-index></app-index>
+
+<div class="container">
+    <div class="row">
+      <div class="col s5">
+        <div class="card">
+          <div class="card-content">
+            <form #politicaForm="ngForm" (ngSubmit)="addPolitica(politicaForm)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="politicaService.selectedPolitica._id">
+              <div class="row">
+                
+                
+                    <div class="input-field col s12">
+                      <textarea id="textarea1" class="materialize-textarea"  type="text" name="deposito" #deposito="ngModel" [(ngModel)]="politicaService.selectedPolitica.deposito"  placeholder="Ingresa la politica de deposito"></textarea>
+                     
+                    </div>
+               
+                
+                  <div class="input-field col s12">
+                    <textarea id="textarea2" class="materialize-textarea"  type="text" name="cancelacion" #cancelacion="ngModel" [(ngModel)]="politicaService.selectedPolitica.cancelacion"  placeholder="Ingresa la politica de cancelacion"></textarea>
+                   
+                  </div>
+              
+                <div class="card-action">
+                  <div class="input-field col-s12">
+                    <button class="btn right" style="margin-left: 2px;" (click)="resetForm(politicaForm)">Clean</button>
+                    <button class="btn right">Save</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+    <div class="col s7">
+      <table class="striped highlight black-text">
+        <thead>
+       
+          <th>Deposito</th>
+          <th>Cancelacion</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let politica of politicaService.politicas">
+
+            <td>{{ politica.deposito }}</td>
+            <td>{{ politica.cancelacion }}</td>
+            
+            <td>
+              <a (click)="editPolitica(politica)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deletePolitica(politica._id, politicaForm)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
