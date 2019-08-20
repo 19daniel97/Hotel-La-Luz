@@ -2,9 +2,15 @@ const Reservacion = require('../models/reservacion');
 
 const reservacionCtrl = {};
 
-reservacionCtrl.getReservaciones = async (req, res, next) => {
-    const reservaciones = await Reservacion.find();
+//eservacionCtrl.getReservaciones = async (req, res, next) => {
+/* const reservaciones = await Reservacion.find();
     res.json(reservaciones);
+};*/
+
+reservacionCtrl.getReservaciones = async (req, res, next) => {
+    const reservaciones = await Reservacion.find().sort({$natural:-1}).limit(1);
+    res.json(reservaciones);
+    console.log('Ultima Reservacion' + reservaciones)
 };
 
 reservacionCtrl.createReservacion = async (req, res, next) => {
@@ -13,10 +19,10 @@ reservacionCtrl.createReservacion = async (req, res, next) => {
         Telefono: req.body.Telefono,
         Email: req.body.Email,
         FechaEnt: req.body.FechaEnt,
-        FechaSal: req.body.FechaSal,
+       
         TipHab: req.body.TipHab,
         NumHab: req.body.NumHab,
-        RegAlo: req.body.RegAlo
+       
     
     });
     await reservacion.save();
@@ -36,10 +42,10 @@ reservacionCtrl.editReservacion = async (req, res, next) => {
         Telefono: req.body.Telefono,
         Email: req.body.Email,
         FechaEnt: req.body.FechaEnt,
-        FechaSal: req.body.FechaSal,
+       
         TipHab: req.body.TipHab,
         NumHab: req.body.NumHab,
-        RegAlo: req.body.RegAlo
+       
     };
     await Reservacion.findByIdAndUpdate(id, {$set: reservacion}, {new: true});
     res.json({status: 'Reservacion actualizada'});
