@@ -5,6 +5,8 @@ import { Reservacion } from '../../models/reservacion';
 import { Habitaciontipo } from '../../models/habitaciontipo';
 import { Tipohab } from '../../models/tipohab';
 import { TipohabService } from 'src/app/services/tipohab.service';
+
+import {MatCheckboxModule} from '@angular/material/checkbox';
 declare var M: any;
 
 @Component({
