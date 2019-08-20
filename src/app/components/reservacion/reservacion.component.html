@@ -29,14 +29,15 @@
 
 
              
-             
-                <select type="text" name="tipHab" #tipHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.tipHab">
-                  <option *ngFor="let tipHab of tipHab" [value]="tipHab.name">
-                    {{tipHab.tipHab}}
-                  </option>
-                </select>
-                   <label>Tipo de habitacion</label>
-                  </div>
+                <div class="input-field col s12">
+                  <select type="text" name="TipHab" #TipHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.TipHab">
+                    <option value="" disabled selected>Elegir Tipo de habitacion</option>
+                    <option value="King size">King size</option>
+                    <option value="Presidencial">Presidencial</option>
+                    <option value="Matrimonial">Matrimonial</option>
+                  </select>
+                  <label>Tipo de habitacion</label>
+                </div>
 
               <div class="input-field col s12">
                 <select type="number" name="NumHab" #NumHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.NumHab">
