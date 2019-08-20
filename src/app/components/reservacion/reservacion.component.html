@@ -33,7 +33,7 @@
               </div>
 
               <div class="input-field col s12">
-                <select type="text" name="NumHab" #NumHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.NumHab">
+                <select type="number" name="NumHab" #NumHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.NumHab">
                   <option value="" disabled selected>Elige una opcion</option>
                   <option value="1">#1</option>
                   <option value="2">#2</option>
@@ -42,7 +42,7 @@
                   <option value="5">#5</option>
                   <option value="6">#6</option>
                 </select>
-                <label>Numero de Habitacion Disponible</label>
+                <label>Numero de personas</label>
               </div>
       
               <!-- <div class="input-field col-s12">
