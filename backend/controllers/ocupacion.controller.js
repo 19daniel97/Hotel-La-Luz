@@ -58,7 +58,7 @@ ocupacionCtrl.createOcupacion = async (req, res, next) => {
             comentarios: req.body.comentarios,
         });
         await ocupacion.save();
-        res.json({status: 'Tipo de habitación creada'});
+        res.json({status: 'Ocupacion creada'});
         
     /*} catch (error) {
         console.log("La habitación está ocupada")
