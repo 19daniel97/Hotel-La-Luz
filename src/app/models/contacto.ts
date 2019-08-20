@@ -1,21 +1,17 @@
 export class Contacto {
-    constructor(_id = '', img = '', nombre = '', email = '', telefono = '0', ocupacion = '', infadi = '') {
+    constructor(_id = '', nombre = '', email = '', infadi = '') {
         this._id = _id;
-        this.img = img;
         this.nombre = nombre;
-        this.email =email;
-        this.telefono = telefono;
-        this.ocupacion =ocupacion;
+        this.email =email
         this.infadi =infadi;
        
     }
 
     _id: string;
-    img: string;
+    
     nombre: string;
     email: string;
-    telefono: string;
-    ocupacion: string;
+   
     infadi: string;
    
 }

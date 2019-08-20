@@ -28,8 +28,15 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
 import { PaquetesComponent } from './components/paquetes/paquetes.component';
 import { OfertasComponent } from './components/ofertas/ofertas.component';
 import { ReservacionComponent } from './components/reservacion/reservacion.component';
+import { ReservacionusuarioComponent } from './components/reservacion/reservacionusuario/reservacionusuario.component';
 import { from } from 'rxjs';
 import { IndexComponent } from './components/index/index.component';
+import { PrincipalComponent } from './components/principal/principal.component';
+import { HomeComponent } from './components/home/home.component';
+import { OcupacionComponent } from './components/ocupacion/ocupacion.component';
+import { ReporteComponent } from './components/ocupacion/reporte/reporte.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ContactolistaComponent } from './components/contacto/contactolista/contactolista.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +56,14 @@ import { IndexComponent } from './components/index/index.component';
     PaquetesComponent,
     OfertasComponent,
     ReservacionComponent,
-    IndexComponent
+    ReservacionusuarioComponent,
+    IndexComponent,
+    PrincipalComponent,
+    HomeComponent,
+    OcupacionComponent,
+    ReporteComponent,
+    FooterComponent,
+    ContactolistaComponent
   ],
   imports: [
     BrowserModule,

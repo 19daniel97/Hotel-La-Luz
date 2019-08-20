@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ReservacionService } from '../../services/reservacion.service';
 import { NgForm } from '@angular/forms';
 import { Reservacion } from '../../models/reservacion';
-
+import { Habitaciontipo } from '../../models/habitaciontipo';
+import { Tipohab } from '../../models/tipohab';
+import { TipohabService } from 'src/app/services/tipohab.service';
 declare var M: any;
 
 @Component({
@@ -14,10 +15,26 @@ declare var M: any;
 })
 export class ReservacionComponent implements OnInit {
 
-  constructor(public reservacionService: ReservacionService) { }
+
+
+Habitaciontipo: Habitaciontipo[] = [ 
+  {id: 1, name: 'Habitacion Doble'},
+  {id: 2, name: 'Habitacion King-size'},
+  {id: 3, name: 'Habitacion Suite'}
+]
+ 
+  constructor(public reservacionService: ReservacionService, 
+    public tipohabService: TipohabService) { }
 
   ngOnInit() {
-    this.getReservaciones();
+    this.getReservaciones(); 
+    this.getTiposhab();
+  }
+  getTiposhab() {
+    this.tipohabService.getTiposhab()
+      .subscribe(res => {
+        this.tipohabService.tipohab = res as Tipohab[];
+      });
   }
 
   addReservacion(form?: NgForm) {
@@ -68,5 +85,8 @@ export class ReservacionComponent implements OnInit {
       this.reservacionService.selectedReservacion = new Reservacion();
     }
   }
+//  getTotalAmount() {
+ //   return this.reservacionService.reservaciones.map(i => i.NumHab).reduce((acc, value) => ñacc + value, 0);
+ // }
 }
 
