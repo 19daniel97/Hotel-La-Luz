@@ -1,42 +1,44 @@
-<nav>
-  <div class="nav-wrapper">
-    <a routerLink="#!" class="brand-logo">Hotel la Luz</a>
-    <a routerLink="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-     
-      <li><a routerLink="/habitacion" routeLinkActive="active">Habitaciones</a></li>
-      <li><a routerLink="/atraccion"routeLinkActive="active">Atracciones turisticas</a></li>
-      <li ><a routerLink="/politica" routeLinkActive="active">Politicas</a></li>
-      <li ><a routerLink="/contacto" routeLinkActive="active">Contactos</a></li>
-      <li><a routerLink="/forpago" routeLinkActive="active">Forma de pago</a></li>
-      <li><a routerLink="/infogen" routeLinkActive="active">Informacion General</a></li>
-      <li ><a routerLink="/ofertas"routeLinkActive="active">Ofertas</a></li>
-      <li ><a routerLink="/paqutes" routeLinkActive="active">Paquetes</a></li>
-      <li><a routerLink="/tipohab" routeLinkActive="active">Tipo Habitacion</a></li>
-      <li><a routerLink="/usuario" routeLinkActive="active">Usuario</a></li>
-      <li><a routerLink="/reservacion" routeLinkActive="active">reservacion</a></li>
-      <li><a (click)="onLogout()" value="Logout">cerrar Secion</a></li>
-    </ul>
-  </div>
-  <!-- <tr>
-    <td colspan="2" class="text-center">
-        <input type="button" (click)="onLogout()" value="Logout" />
-    </td>
-</tr> -->
+<div class="navbar-fixed">
+  <nav class="black lighten-1" role="navigation">
+    <div class="nav-wrapper">
+      <a id="logo-container" href="#" class="brand-logo logo">
+        <i class="material-icons">hotel</i> Hotel la Luz</a
+      >
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/habitacion">Habitaciones</a></li>
+        <li><a href="/atraccion">Atracciones turisticas</a></li>
+        <li ><a href="/politica">Politicas</a></li>
+        <li ><a href="/contactolista">Mensajes</a></li>
+        <li><a href="/forpago">Forma de pago</a></li>
+        <li><a href="/infogen">Informacion General</a></li>
+        <li ><a href="/ofertas">Ofertas</a></li>
+        <li ><a href="/paqutes">Paquetes</a></li>
+        <li><a href="/tipohab">Tipo Habitacion</a></li>
+        <li><a href="/usuario">Usuario</a></li>
+        <li><a href="/ocupacion">Ocupacion</a></li>
+        
+        <li><a (click)="onLogout()" value="Logout"><i class="material-icons right">power_settings_new</i>Cerrar Sesion</a></li>
+        
+      </ul>
 
-</nav>
-
-<ul class="sidenav" id="mobile-demo">
-
-  <li><a routerLink="/habitacion">Habitaciones</a></li>
-  <li><a routerLink="/atraccion">Atracciones turisticas</a></li>
-  <li ><a routerLink="/politica">Politicas</a></li>
-  <li ><a routerLink="/contacto">Contactos</a></li>
-  <li><a routerLink="/forpago">Forma de pago</a></li>
-  <li><a routerLink="/infogen">Informacion General</a></li>
-  <li ><a routerLink="/ofertas">Ofertas</a></li>
-  <li ><a routerLink="/paqutes">Paquetes</a></li>
-  <li><a routerLink="/tipohab">Tipo Habitacion</a></li>
-  <li><a routerLink="/usuario">Usuario</a></li>
-  <li><a routerLink="/reservacion">Usuario</a></li>
-</ul>
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="/habitacion">Habitaciones</a></li>
+        <li><a href="/atraccion">Atracciones turisticas</a></li>
+        <li ><a href="/politica">Politicas</a></li>
+        <li ><a href="/contactolista">Mensajes</a></li>
+        <li><a href="/forpago">Forma de pago</a></li>
+        <li><a href="/infogen">Informacion General</a></li>
+        <li ><a href="/ofertas">Ofertas</a></li>
+        <li ><a href="/paqutes">Paquetes</a></li>
+        <li><a href="/tipohab">Tipo Habitacion</a></li>
+        <li><a href="/usuario">Usuario</a></li>
+        <li><a href="/ocupacion">Ocupacion</a></li>
+        
+        <li><a (click)="onLogout()" value="Logout"><i class="material-icons right">power_settings_new</i>Cerrar Sesion</a></li>
+        
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"
+        ><i class="material-icons">menu</i></a
+      >
+    </div>
+  </nav>

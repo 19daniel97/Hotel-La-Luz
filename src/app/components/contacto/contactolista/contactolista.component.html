@@ -1,0 +1,28 @@
+<app-index></app-index>
+<div class="container">
+  <div class="row">
+ <div class="col s7">
+  <table class="striped highlight black-text">
+    <thead>
+      
+      <th>Nombre</th>
+      <th>Email</th>
+     
+      <th>Informacion adicional</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contacto of contactoService.contactos">
+       
+        <td>{{ contacto.nombre }}</td>
+        <td>{{ contacto.email }}</td>
+      
+        <td>{{ contacto.infadi }}</td>
+
+       
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+<app-footer></app-footer>
