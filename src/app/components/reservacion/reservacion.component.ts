@@ -7,6 +7,7 @@ import { Tipohab } from '../../models/tipohab';
 import { TipohabService } from 'src/app/services/tipohab.service';
 
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatFormFieldModule} from '@angular/material/form-field';
 declare var M: any;
 
 @Component({
@@ -17,8 +18,8 @@ declare var M: any;
 })
 
 @NgModule({
-  imports: [MatCheckboxModule],
-  exports: [MatCheckboxModule]
+  imports: [MatCheckboxModule, MatFormFieldModule],
+  exports: [MatCheckboxModule, MatFormFieldModule]
 })
 
 export class ReservacionComponent implements OnInit {
