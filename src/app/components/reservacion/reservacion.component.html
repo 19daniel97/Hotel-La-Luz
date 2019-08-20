@@ -1,5 +1,7 @@
 <app-principal></app-principal>
 
+<!--
+
 
 <div class="container">
   <div class="row">
@@ -25,22 +27,13 @@
               <div class="input-field col s12">
                 
                 <!--
-               <select type="text" name="TipHab" #TipHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.TipoHab">
-                 <option value="" disabled selected>Elegir Tipo de habitacion</option>
-                  <option value="King size">King size</option>
-                  
-                </select>
-                <label>Tipo de habitacion</label>
+              
               -->
               <!--
 
 
-              <select type="text" name="TipHab" #TipHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.TipoHab">
-                <option *ngFor="let TipoHab of Habitaciontipo" [value]="TipoHab.name">
-                  {{TipoHab.name}}
-                </option>
-              </select>
-             -->
+             
+             
              <select type="text" name="TipHab" #TipHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.TipoHab">
               <option *ngFor="let tipohab of tipohab" [value]="tipohab.name">
                 {{tipohab.tipohab}}
@@ -61,25 +54,13 @@
                 </select>
                 <label>Numero de personas</label>
               </div>
-              
+                  
+             -->
             
 
              <!--
 
-              <table>
-                <thead>
-                  <th>Costo Total</th>
-                  <th>Dias</th>
-                </thead>
-                <body></body>
-                  <tr *ngFor="let reservacion of reservacionService.reservaciones"></tr>
-                  {{ reservacion.NumHab * 400 }}
-                    
-                 
-                 
-                </body>
-              </table>
-              -->
+              
                 <div class="card-action">
                 <div class="input-field col-s12">
                     
@@ -100,7 +81,7 @@
     </div>  
 </div>
 
-                
+-->
 
 
     
