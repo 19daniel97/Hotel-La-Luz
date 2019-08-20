@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { ReservacionService } from '../../services/reservacion.service';
 import { NgForm } from '@angular/forms';
 import { Reservacion } from '../../models/reservacion';
@@ -15,6 +15,12 @@ declare var M: any;
   styleUrls: ['./reservacion.component.css'],
   providers: [ ReservacionService ]
 })
+
+@NgModule({
+  imports: [MatCheckboxModule],
+  exports: [MatCheckboxModule]
+})
+
 export class ReservacionComponent implements OnInit {
 
 
