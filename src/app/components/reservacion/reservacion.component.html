@@ -30,8 +30,8 @@
 
              
              
-             <select type="text" name="TipHab" #TipHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.TipHab">
-              <option *ngFor="let TipHab of TipHab" [value]="TipHab.name">
+             <select type="text" name="tipohab" #tipohab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.tipohab">
+              <option *ngFor="let tipohab of tipohab" [value]="tipohab.name">
                 {{tipohab.tipohab}}
               </option>
             </select>
