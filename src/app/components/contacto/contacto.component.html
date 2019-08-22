@@ -2,24 +2,23 @@
 <div class="container">
  
 
-      <div class="card">
-        <div class="card-content">
-          <form #contactoForm="ngForm" (ngSubmit)="addContacto(contactoForm)">
+     
+          <form #contactoForm="ngForm" (ngSubmit)="addContacto(contactoForm)" class="col s12">
             <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="contactoService.selectedContacto._id">
             <div class="row">
 
 
-              <div class="input-field col-s12">
+              <div class="input-field col-s6">  <i class="materila-icons prefix">account_circle</i>
                 <input type="text" name="nombre" #name="ngModel" [(ngModel)]="contactoService.selectedContacto.nombre"
                   placeholder="Ingresa el nombre">
               </div>
-              <div class="input-field col-s12">
+              <div class="input-field col-s6"> <i class="materila-icons prefix">email</i>
                 <input type="text" name="email" #name="ngModel" [(ngModel)]="contactoService.selectedContacto.email"
-                  placeholder="Ingresa el nombre">
+                  placeholder="Ingresa el E-mail">
               </div>
              
               <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s12"> <i class="materila-icons prefix">message</i>
                   <textarea id="textarea1" class="materialize-textarea" type="text" name="infadi" #name="ngModel"
                     [(ngModel)]="contactoService.selectedContacto.infadi" placeholder="Ingresa el contenido"></textarea>
 
@@ -28,14 +27,13 @@
 
               <div class="card-action">
                 <div class="input-field col-s12">
-                  <button class="btn right" style="margin-left: 2px;" (click)="resetForm(contactoForm)">Clean</button>
-                  <button class="btn right">Save</button>
+                  <button class="black btn-large" style="margin-left: 2px;" (click)="resetForm(contactoForm)">Clean</button>
+                  <button class="red btn-large"><i class="materila-icons right">send</i>Save</button>
                 </div>
               </div>
             </div>
           </form>
-        </div>
-      </div>
+        
     </div>
 
     
