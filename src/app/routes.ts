@@ -57,7 +57,7 @@ export const appRoutes = [
     path:'paquetes', component: PaquetesComponent, canActivate: [AuthGuard],
     },
     {
-        path: 'reservacion', component: ReservacionComponent,
+        path: 'reservacion/:id', component: ReservacionComponent,
     },
     {
         path: 'home', component: HomeComponent, 

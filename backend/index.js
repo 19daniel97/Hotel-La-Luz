@@ -54,6 +54,6 @@ app.use('/api/ofertas', require('./routes/ofertas.route'));
 app.use('/api/contactos', require('./routes/contacto.routes'));
 app.use('/api/politicas', require('./routes/politica.routes'));
 app.use('/api/reservaciones', require('./routes/reservacion.routes'));
-app.use('/api/ocupacion', require('./routes/ocupacion.routes'));
+app.use('/api/ocupaciones', require('./routes/ocupacion.routes'));
 // Starting the server
 app.listen(process.env.PORT, () => console.log(`server started on port: ${process.env.PORT}`));

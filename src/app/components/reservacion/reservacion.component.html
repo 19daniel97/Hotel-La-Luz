@@ -23,51 +23,29 @@
               <!-- <div class="input-field col-s12">
                 <input type="text" class="datepicker" name="FechaSal" #FechaSal="ngModel" [(ngModel)]="reservacionService.selectedReservacion.FechaSal" placeholder="Ingresa la fecha de salida">
               </div> -->
-              <div class="input-field col s12">
-                <select type="text" name="TipHab" #TipHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.TipHab">
+              <!-- COMBO HABITACION -->
+              <!-- <div class="input-field col s12">
+                <select class="browser-default" name="habitacion" #habitacion="ngModel" [(ngModel)]="reservacionService.selectedReservacion.habitacion">
                   <option value="" disabled selected>Elegir Tipo de habitacion</option>
-                  <option value="King size">King size</option>
-                  <option value="Presidencial">Presidencial</option>
-                  <option value="Matrimonial">Matrimonial</option>
+                  <option *ngFor = "let item of habitaciones" value="{{ item._id}}">{{ item.numeroh }}</option>
                 </select>
-                <label>Tipo de habitacion</label>
-              </div>
-
-              <!-- <mat-form-field>
-                
-                <select matNativeControl required type="number" name="NumHab" #NumHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.NumHab">
-                  <option value="" disabled selected>Elige una opcion</option>
-                  <option value="1">#1</option>
-                  <option value="2">#2</option>
-                  <option value="3">#3</option>
-                  <option value="4">#4</option>
-                  <option value="5">#5</option>
-                  <option value="6">#6</option>
-                </select>
-              </mat-form-field> -->
-
-              <!--<div class="input-field col s12">
-                <select type="number" name="NumHab" #NumHab="ngModel" [(ngModel)]="reservacionService.selectedReservacion.NumHab">
-                  <option value="" disabled selected>Elige una opcion</option>
-                  <option value="1">#1</option>
-                  <option value="2">#2</option>
-                  <option value="3">#3</option>
-                  <option value="4">#4</option>
-                  <option value="5">#5</option>
-                  <option value="6">#6</option>
-                </select>
-                <label>Numero de personas</label>
               </div> -->
-
-              <select class="browser-default">
-                <option value="" disabled selected>Elegir Tipo de habitacion</option>
-                <option value="King size">King size</option>
-                <option value="Presidencial">Presidencial</option>
-                <option value="Matrimonial">Matrimonial</option>
-              </select>
-
-              
-              <select class="browser-default">
+              <div class="input-field col s12">
+                <div>
+                  <input *ngIf="room?.tipoh=='5d5c8e9e5a495e0c3e7c106e'" disabled type="text" value="Normal">
+                  <input hidden *ngIf="room?.tipoh=='5d5c8e9e5a495e0c3e7c106e'" value="room._id" type="text" name="habitacion" #habitacion="ngModel" [(ngModel)]="reservacionService.selectedReservacion.habitacion">
+                  <input *ngIf="room?.tipoh=='5d5c8eb25a495e0c3e7c106f'" disabled type="text" value="Doble">
+                  <input hidden *ngIf="room?.tipoh=='5d5c8eb25a495e0c3e7c106f'" value="room._id" type="text" name="habitacion" #habitacion="ngModel" [(ngModel)]="reservacionService.selectedReservacion.habitacion">
+                  <input *ngIf="room?.tipoh=='5d5c95e15a495e0c3e7c1077'" disabled type="text" value="King Size">
+                  <input hidden *ngIf="room?.tipoh=='5d5c95e15a495e0c3e7c1077'" value="room._id" type="text" name="habitacion" #habitacion="ngModel" [(ngModel)]="reservacionService.selectedReservacion.habitacion">
+                  <input *ngIf="room?.tipoh=='5d5c96015a495e0c3e7c1079'" disabled type="text" value="Triple">
+                  <input hidden *ngIf="room?.tipoh=='5d5c96015a495e0c3e7c1079'" value="room._id" type="text" name="habitacion" #habitacion="ngModel" [(ngModel)]="reservacionService.selectedReservacion.habitacion">
+                  
+                </div>
+              </div>
+              <!-- COMBO NUMERO DE PERSONAS -->
+              <div class="input-field col s12">
+                <select class="browser-default" name="numPer" #numPer="ngModel" [(ngModel)]="reservacionService.selectedReservacion.numPer">
                   <option value="" disabled selected>Elige una opcion</option>
                   <option value="1">#1</option>
                   <option value="2">#2</option>
@@ -75,10 +53,8 @@
                   <option value="4">#4</option>
                   <option value="5">#5</option>
                   <option value="6">#6</option>
-            </select>
-
-            
-      
+                </select>
+              </div>
               <!-- <div class="input-field col-s12">
                 <input type="text" name="RegAlo" #RegAlo="ngModel" [(ngModel)]="reservacionService.selectedReservacion.RegAlo" placeholder="Selecciona el Regimen de alojamiento">
               </div> -->

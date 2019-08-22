@@ -19,11 +19,9 @@ ocupacionCtrl.editOcupacion = async (req, res, next) => {
     const { id } = req.params;
     const ocupacion = {
         habitacion: req.body.habitacion,
-        adultos: req.body.adultos,
-        salida: req.body.salida,
+        entrada: req.body.entrada,
         nombre: req.body.nombre,
-        telefono: req.body.telefono,
-        comentarios: req.body.comentarios,
+        telefono: req.body.telefono
     };
     await Ocupacion.findByIdAndUpdate(id, {$set: ocupacion}, {new: true});
     res.json({status: 'Datos de ocupación actualizados'});
@@ -36,34 +34,16 @@ ocupacionCtrl.deleteOcupacion = async (req, res, next) => {
 
 //Verificar si la habitacion y fecha esta ocupada
 ocupacionCtrl.createOcupacion = async (req, res, next) => {
-    //try {
-       
-        /*let entrada = req.body.entrada
-        let salida = req.body.salida
-        await db.coleccion('Ocupacion').find({
-            
-            "$and": [{ "$nor": [ "entrada" : {"$gte" : new Date(entrada) }},
-                    {"salida" : {"$lte" : new Date(salida) }} ]
-                //{"habitacion" : {"$eq": req.body.habitacion  }}, {"habitacion":{ $exists:false }}
-            ]
-        
-        })
-        next();*/
+    
         const ocupacion = new Ocupacion({
             habitacion: req.body.habitacion,
             entrada: req.body.entrada,
-            salida: req.body.salida,
             nombre: req.body.nombre,
-            telefono: req.body.telefono,
-            comentarios: req.body.comentarios,
+            telefono: req.body.telefono
         });
         await ocupacion.save();
         res.json({status: 'Ocupacion creada'});
         
-    /*} catch (error) {
-        console.log("La habitación está ocupada")
-        res.json({status: 'Habitacion Ocupada'});
-    } */
     
 };
 

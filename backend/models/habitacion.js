@@ -6,7 +6,8 @@ const HabitacionSchema = new Schema({
     numeroc: { type: Number, required: true },
     precio: { type: Number, required: true },
     tipoh: { type: String, required: true},
-    descripcion: { type: String, required: true }
+    descripcion: { type: String, required: true },
+    ocupacion: { type: Boolean, required: false }
 });
 
 module.exports = mongoose.model('Habitacion', HabitacionSchema);

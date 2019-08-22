@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { HabitacionService } from '../../services/habitacion.service';
 import { NgForm } from '@angular/forms';
 import { Habitacion } from '../../models/habitacion';
+import { Tipohab } from 'src/app/models/tipohab';
+import { TipohabService } from 'src/app/services/tipohab.service';
 
 declare var M: any;
 
@@ -13,15 +15,28 @@ declare var M: any;
   providers: [ HabitacionService ]
 })
 export class HabitacionComponent implements OnInit {
+  tiposhab;
+  condicion=false;
 
-  constructor(public habitacionService: HabitacionService) { }
+  constructor(public habitacionService: HabitacionService, 
+    public tipohabService: TipohabService) { }
 
   ngOnInit() {
     this.getHabitaciones();
+    this.getTiposhab();
   }
 
-  addHabitacion(form?: NgForm) {
+  getTiposhab (){
+    this.tipohabService.getTiposhab()
+      .subscribe(res => {
+        this.tiposhab = res as Tipohab[];
+        console.log(this.tiposhab)
+      });
+  }
+
+  addHabitacion(form: NgForm) {
     console.log(form.value);
+    this.resetForm();
     if(form.value._id) {
       this.habitacionService.putHabitacion(form.value)
         .subscribe(res => {
@@ -64,7 +79,6 @@ export class HabitacionComponent implements OnInit {
 
   resetForm(form?: NgForm) {
     if (form) {
-      form.reset();
       this.habitacionService.selectedHabitacion = new Habitacion();
     }
   }

@@ -6,7 +6,7 @@ const ReservacionSchema = new Schema({
     Telefono: { type: String, required: true },
     Email: { type: String, required: true },
     FechaEnt: { type: Date },
-    TipHab: { type: String, required: true },
+    habitacion: { type: String, required: true },
     NumHab: { type: Number, required: true }
 
 });

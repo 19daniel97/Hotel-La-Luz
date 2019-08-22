@@ -19,9 +19,8 @@ reservacionCtrl.createReservacion = async (req, res, next) => {
         Telefono: req.body.Telefono,
         Email: req.body.Email,
         FechaEnt: req.body.FechaEnt,
-       
-        TipHab: req.body.TipHab,
-        NumHab: req.body.NumHab,
+        habitacion: req.body.habitacion,
+        NumHab: req.body.numPer,
        
     
     });
@@ -42,9 +41,8 @@ reservacionCtrl.editReservacion = async (req, res, next) => {
         Telefono: req.body.Telefono,
         Email: req.body.Email,
         FechaEnt: req.body.FechaEnt,
-       
-        TipHab: req.body.TipHab,
-        NumHab: req.body.NumHab,
+        habitacion: req.body.habitacion,
+        NumHab: req.body.NumHab
        
     };
     await Reservacion.findByIdAndUpdate(id, {$set: reservacion}, {new: true});

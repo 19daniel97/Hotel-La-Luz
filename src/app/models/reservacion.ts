@@ -1,13 +1,15 @@
+import { Habitacion } from './habitacion';
+
 export class Reservacion {
-    constructor(_id = '', Nombre = '', Telefono = '', Email = '', FechaEnt = '', TipHab = '', NumHab = '') {
+    constructor(_id = '', Nombre = '', Telefono = '', Email = '', FechaEnt = '', habitacion = new Habitacion(),
+                numPer = 0) {
         this._id = _id;
         this.Nombre = Nombre;
         this.Telefono = Telefono;
         this.Email = Email;
         this.FechaEnt = FechaEnt
-        this.TipHab = TipHab;
-        this.NumHab = NumHab;
-        
+        this.habitacion = habitacion;
+        this.numPer = numPer;
     }
 
     _id: string;
@@ -15,9 +17,6 @@ export class Reservacion {
     Telefono: string;
     Email: string;
     FechaEnt: string;
-    TipHab: string;
-    NumHab: string;
-   
-
-   
+    habitacion: Habitacion;
+    numPer: number;
 }

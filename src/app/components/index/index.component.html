@@ -5,21 +5,38 @@
         <i class="material-icons">hotel</i> Hotel la Luz</a
       >
       <ul class="right hide-on-med-and-down">
-        <li><a routerLink="/habitacion" routeLinkActive="active">Habitaciones</a></li>
-        <li><a routerLink="/atraccion" routeLinkActive="active">Atracciones turisticas</a></li>
-        <li ><a routerLink="/politica" routeLinkActive="active">Politicas</a></li>
-        <li ><a routerLink="/contactolista" routeLinkActive="active">Mensajes</a></li>
-        <li><a routerLink="/forpago" routeLinkActive="active">Forma de pago</a></li>
-        <li><a routerLink="/infogen" routeLinkActive="active">Informacion General</a></li>
-        <li ><a routerLink="/ofertas" routeLinkActive="active">Ofertas</a></li>
-        <li ><a routerLink="/paqutes" routeLinkActive="active">Paquetes</a></li>
-        <li><a routerLink="/tipohab" routeLinkActive="active">Tipo Habitacion</a></li>
-        <li><a routerLink="/usuario" routeLinkActive="active">Usuario</a></li>
-        <li><a routerLink="/ocupacion">Ocupacion</a></li>
-        
-        <li><a (click)="onLogout()" value="Logout"><i class="material-icons right">power_settings_new</i>Cerrar Sesion</a></li>
-        
+        <li>
+          <a >
+            <button mat-button [matMenuTriggerFor]="menuC">Tables</button>
+            <mat-menu #menuC="matMenu">
+              <button routerLink="/habitacion" routeLinkActive="active" mat-menu-item><span>Habitaciones</span></button>
+              <button routerLink="/atraccion" routeLinkActive="active" mat-menu-item><span>Atracciones turisticas</span></button>
+              <button routerLink="/politica" routeLinkActive="active" mat-menu-item><span>Politicas</span></button>
+              <button routerLink="/contactolista" routeLinkActive="active" mat-menu-item><span>Mensajes</span></button>
+              <button routerLink="/forpago" routeLinkActive="active" mat-menu-item><span>Forma de pago</span></button>
+              <button routerLink="/infogen" routeLinkActive="active" mat-menu-item><span>Informacion General</span></button>
+              <button routerLink="/ofertas" routeLinkActive="active" mat-menu-item><span>Ofertas</span></button>
+              <button routerLink="/paquetes" routeLinkActive="active" mat-menu-item><span>Paquetes</span></button>
+              <button routerLink="/tipohab" routeLinkActive="active" mat-menu-item><span>Tipo Habitacion</span></button>
+              <button routerLink="/usuario" routeLinkActive="active" mat-menu-item><span>Usuario</span></button>
+              <button routerLink="/ocupacion" routeLinkActive="active" mat-menu-item><span>Ocupacion</span></button>
+          
+            </mat-menu>
+          </a>
+        </li>
+        <li>
+          <a>
+            <button (click)="onLogout()" mat-button>Cerrar sesion</button>
+          </a>
+        </li>
       </ul>
+          <!-- <ul class="right hide-on-med-and-down">
+
+            <li><a routerLink="/tipohab" routeLinkActive="active">Tipo Habitacion</a></li>
+            <li><a routerLink="/usuario" routeLinkActive="active">Usuario</a></li>
+            <li><a routerLink="/ocupacion">Ocupacion</a></li>
+           
+            </ul> -->
 
       <ul id="nav-mobile" class="sidenav">
         <li><a routerLink="/habitacion" routeLinkActive="active">Habitaciones</a></li>

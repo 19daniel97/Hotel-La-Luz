@@ -6,7 +6,9 @@ import { } from '../ocupacion.component'
 import * as jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { Ocupacion } from 'src/app/models/ocupacion';
+import { Habitacion } from 'src/app/models/habitacion';
 import { NgForm } from '@angular/forms';
+import { HabitacionService } from 'src/app/services/habitacion.service';
 
 declare var M: any;
 @Component({
@@ -15,11 +17,19 @@ declare var M: any;
   styleUrls: ['./reporte.component.css']
 })
 export class ReporteComponent implements OnInit {
-
-  constructor(public ocupacionService: OcupacionService) { }
+  habitaciones;
+  constructor(public ocupacionService: OcupacionService, public habitacionService: HabitacionService) { }
 
   ngOnInit() {
     this.getOcupaciones();
+    this.getHabitaciones();
+  }
+
+  getHabitaciones() {
+    this.habitacionService.getHabitaciones()
+      .subscribe(res => {
+        this.habitaciones = res as Habitacion[];
+      });
   }
 
   getOcupaciones() {

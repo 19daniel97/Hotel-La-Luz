@@ -10,10 +10,10 @@ export class OcupacionService {
   public selectedOcupacion: Ocupacion;
   public ocupacion: Ocupacion[];
 
-  //readonly URL_API = 'http://localhost:3000/api/ocupacion';
-  readonly URL_API = '/api/ocupacion';
+  readonly URL_API = 'http://localhost:3000/api/ocupaciones';
+  // readonly URL_API = '/api/ocupacion';
 
-  constructor(private http: HttpClient) {
+  constructor(public http: HttpClient) {
     this.selectedOcupacion = new Ocupacion();
   }
 

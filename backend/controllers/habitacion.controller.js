@@ -13,7 +13,8 @@ habitacionCtrl.createHabitacion = async (req, res, next) => {
         numeroc: req.body.numeroc,
         precio: req.body.precio,
         tipoh: req.body.tipoh,
-        descripcion: req.body.descripcion
+        descripcion: req.body.descripcion,
+        ocupacion: req.body.ocupacion
     });
     await habitacion.save();
     res.json({status: 'Habitacion created'});
@@ -32,7 +33,8 @@ habitacionCtrl.editHabitacion = async (req, res, next) => {
         numeroc: req.body.numeroc,
         precio: req.body.precio,
         tipoh: req.body.tipoh,
-        descripcion: req.body.descripcion
+        descripcion: req.body.descripcion,
+        ocupacion: req.body.ocupacion
     };
     await Habitacion.findByIdAndUpdate(id, {$set: habitacion}, {new: true});
     res.json({status: 'Habitacion Updated'});

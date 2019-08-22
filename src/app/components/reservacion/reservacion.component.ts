@@ -2,9 +2,12 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { ReservacionService } from '../../services/reservacion.service';
 import { NgForm } from '@angular/forms';
 import { Reservacion } from '../../models/reservacion';
-import { Habitaciontipo } from '../../models/habitaciontipo';
 import { Tipohab } from '../../models/tipohab';
 import { TipohabService } from 'src/app/services/tipohab.service';
+
+import { HabitacionService } from '../../services/habitacion.service';
+import { Habitacion } from 'src/app/models/habitacion';
+import { ActivatedRoute, Router } from '@angular/router';
 
 //import {MatCheckboxModule} from '@angular/material/checkbox';
 //import {MatFormFieldModule} from '@angular/material/form-field';
@@ -23,31 +26,32 @@ declare var M: any;
 }) */
 
 export class ReservacionComponent implements OnInit {
+  room;
+  habitaciones;
+  public idHabitacion = this._route
+  .snapshot.paramMap.get('id');
 
-
-
-Habitaciontipo: Habitaciontipo[] = [ 
-  {id: 1, name: 'Habitacion Doble'},
-  {id: 2, name: 'Habitacion King-size'},
-  {id: 3, name: 'Habitacion Suite'}
-]
  
   constructor(public reservacionService: ReservacionService, 
-    public tipohabService: TipohabService) { }
+    public habitacionService: HabitacionService,
+    public _route:ActivatedRoute, public router: Router) { }
 
   ngOnInit() {
     this.getReservaciones(); 
-    this.getTiposhab();
+    this.getHabitaciones();
+    this.getroom();
   }
-  getTiposhab() {
-    this.tipohabService.getTiposhab()
+
+  getHabitaciones() {
+    this.habitacionService.getHabitaciones()
       .subscribe(res => {
-        this.tipohabService.tipohab = res as Tipohab[];
+        this.habitaciones = res as Habitacion[];
       });
   }
 
   addReservacion(form?: NgForm) {
-    //console.log(form.value);
+    this.reservacionService.selectedReservacion.habitacion = this.room;
+    console.log(form.value);
     if(form.value._id) {
       this.reservacionService.putReservacion(form.value)
         .subscribe(res => {
@@ -61,6 +65,7 @@ Habitaciontipo: Habitaciontipo[] = [
         this.getReservaciones();
         this.resetForm(form);
         M.toast({html: 'Save successfully'});
+        this.router.navigateByUrl('/reservacionusuario');
       });
     }
     
@@ -94,8 +99,12 @@ Habitaciontipo: Habitaciontipo[] = [
       this.reservacionService.selectedReservacion = new Reservacion();
     }
   }
-//  getTotalAmount() {
- //   return this.reservacionService.reservaciones.map(i => i.NumHab).reduce((acc, value) => ñacc + value, 0);
- // }
+
+  getroom(){
+    this.habitacionService.getHabitacion(this.idHabitacion).subscribe(res =>{
+      this.room = res as Habitacion;
+      
+    });
+  }
 }
 

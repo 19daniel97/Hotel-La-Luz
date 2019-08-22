@@ -10,29 +10,32 @@
             <table id="taboculta" class="striped highlight black-text">
               <thead>
                 <th>Habitación</th>
-                <th>Entrada</th>
-                <th>Salida</th>
+                <th>Fecha</th>
                 <th>Nombre</th>
                 <th>Telefono</th>
-                <th>Comentarios</th>
-                <!--<th>Operaciones</th>-->
+                <th>Operaciones</th>
               </thead>
               <tbody>
                 <tr *ngFor="let ocupacion of ocupacionService.ocupacion">
-                  <td>{{ ocupacion.habitacion }}</td>
+                  <!-- Habitaciones -->
+                  <td>
+                      <div *ngIf="ocupacion.habitacion=='5d5dc46abbf2c9243bdb6828'">Normal</div>
+                      <div *ngIf="ocupacion.habitacion=='5d5dcb96bbf2c9243bdb682c'">Doble</div>
+                      <div *ngIf="ocupacion.habitacion=='5d5dc553bbf2c9243bdb682a'">King Size</div>
+                      <div *ngIf="ocupacion.habitacion=='5d5dcbbdbbf2c9243bdb682d'">Triple</div>
+                  </td>
+
                   <td>{{ ocupacion.entrada }}</td>
-                  <td>{{ ocupacion.salida }}</td>
                   <td>{{ ocupacion.nombre }}</td>
                   <td>{{ ocupacion.telefono }}</td>
-                  <td>{{ ocupacion.comentarios }}</td>
-                  <!--<td>
+                  <td>
                     <a href="ocupacion" (click)="editOcupacion(ocupacion)">
                       <i class="material-icons">edit</i>
                     </a>
                     <a (click)="deleteOcupacion(ocupacion._id, ocupacionForm)">
                       <i class="material-icons">delete</i> 
                     </a>
-                  </td> -->
+                  </td>
                 </tr>
               </tbody>
             </table>

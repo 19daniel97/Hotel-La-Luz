@@ -1,3 +1,4 @@
+<app-index></app-index>
 <div class="container">
   <div class="row">
     <div class="col s5">
@@ -9,18 +10,34 @@
               <div class="input-field col-s12">
                 <input type="text" name="numeroh" #name="ngModel" [(ngModel)]="habitacionService.selectedHabitacion.numeroh" placeholder="Ingresa el numero de habitacion">
               </div>
-              <div class="input-field col-s12">
+              <div class="input-field col s12">
                 <input type="text" name="numeroc" #name="ngModel" [(ngModel)]="habitacionService.selectedHabitacion.numeroc" placeholder="Ingresa el numero de camas">
               </div>
-              <div class="input-field col-s12">
-                <input type="text" name="precio" #name="ngModel" [(ngModel)]="habitacionService.selectedHabitacion.precio" placeholder="Ingresa el precio">
+              <div class="row">
+                <div class="input-field col l6 m6 s12">
+                  <input value=" " type="text" name="precio" #name="ngModel" [(ngModel)]="habitacionService.selectedHabitacion.precio" placeholder="Ingresa el precio">
+                </div>
+                  <div class="col l6 m6 s12">
+                  <mat-form-field>
+                    <mat-label>Tipo de habitacion</mat-label>
+                    <mat-select name="tipoh" #tipoh="ngModel" [(ngModel)]="habitacionService.selectedHabitacion.tipoh">
+                      <mat-option *ngFor="let item of tiposhab" [value]="item._id">
+                        {{item.tipohab}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
               </div>
-              <div class="input-field col-s12">
-                <input type="text" name="tipoh" #name="ngModel" [(ngModel)]="habitacionService.selectedHabitacion.tipoh" value="0" placeholder="Ingresa tipo de habitacion">
-              </div>
-                
+              <!-- <div id="PRUEBA" *ngFor="let item of tiposhab">
+                id: {{item._id}}
+                campo: {{item.tipohab}}
+              </div> -->
               <div class="input-field col-s12">
                 <input type="text" name="descripcion" #name="ngModel" [(ngModel)]="habitacionService.selectedHabitacion.descripcion" value="0" placeholder="Ingresa la descripcion">
+              </div>
+              <div hidden>
+                <input type="text" name="ocupacion" #ocupacion="ngModel" [(ngModel)]="habitacionService.selectedHabitacion.ocupacion" value="{{condicion}}">
+
               </div>
               <div class="card-action">
                 <div class="input-field col-s12">
@@ -47,7 +64,12 @@
             <td>{{ habitacion.numeroh }}</td>
             <td>{{ habitacion.numeroc }}</td>
             <td>{{ habitacion.precio }}</td>
-            <td>{{ habitacion.tipoh }}</td>
+            <td>
+              <div *ngIf="habitacion.tipoh=='5d5c8e9e5a495e0c3e7c106e'">Normal</div>
+              <div *ngIf="habitacion.tipoh=='5d5c8eb25a495e0c3e7c106f'">Doble</div>
+              <div *ngIf="habitacion.tipoh=='5d5c95e15a495e0c3e7c1077'">King Size</div>
+              <div *ngIf="habitacion.tipoh=='5d5c96015a495e0c3e7c1079'">Triple</div>
+            </td>
             <td>{{ habitacion.descripcion }}</td>
             
             <td>
@@ -64,3 +86,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>

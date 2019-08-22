@@ -12,48 +12,37 @@
 
 <h3 class="center">Habitaciones</h3>
 <div class="row">
-  <div class="col s12 m6 l3">
-    <div class="card small">
+  <div *ngFor="let room of rooms" class="col s12 m6 l3">
+    <div class="card">
       <div class="card-image">
-        <img src="../../../../assets/img/1.jpg" />
-        <span class="card-title">Doble</span>
+        <!-- CONDICION PARA IMAGENES -->
+        <div *ngIf="room.tipoh=='5d5c8e9e5a495e0c3e7c106e'"><img src="/assets/img/hotel1.jpeg"/></div>
+        <div *ngIf="room.tipoh=='5d5c8eb25a495e0c3e7c106f'"><img src="/assets/img/hotel4.jpeg"/></div>
+        <div *ngIf="room.tipoh=='5d5c95795a495e0c3e7c1073'"><img src="/assets/img/hotel6.jpeg"/></div>
+        <div *ngIf="room.tipoh=='5d5c95875a495e0c3e7c1074'"><img src="/assets/img/hotel9.jpeg"/></div>
+        <div *ngIf="room.tipoh=='5d5c95a55a495e0c3e7c1075'"><img src="/assets/img/hotel2.jpeg"/></div>
+        <div *ngIf="room.tipoh=='5d5c95d85a495e0c3e7c1076'"><img src="/assets/img/3.jpg"/></div>
+        <div *ngIf="room.tipoh=='5d5c95e15a495e0c3e7c1077'"><img src="/assets/img/hotel5.jpeg"/></div>
+        <div *ngIf="room.tipoh=='5d5c95eb5a495e0c3e7c1078'"><img src="/assets/img/hotel7.jpeg"/></div>
+        <div *ngIf="room.tipoh=='5d5c96015a495e0c3e7c1079'"><img src="/assets/img/hotel3.jpeg"/></div>
+        <span class="card-title">
+          <!-- CONDICION PARA TITULO -->
+          <div *ngIf="room.tipoh=='5d5c8e9e5a495e0c3e7c106e'">Normal</div>
+          <div *ngIf="room.tipoh=='5d5c8eb25a495e0c3e7c106f'">Doble</div>
+          <div *ngIf="room.tipoh=='5d5c95e15a495e0c3e7c1077'">King Size</div>
+          <div *ngIf="room.tipoh=='5d5c96015a495e0c3e7c1079'">Triple</div>
+        </span>
       </div>
       <div class="card-content">
+          {{room?.descripcion}}
         <p>
-          2 camas individuales, Wifi, agua caliente, bañera
+          
         </p>
       </div>
-      <div class="card-action"><a >$400</a></div>
-    </div>
-  </div>
-  <div class="col s12 m6 l3">
-    <div class="card small">
-      <div class="card-image">
-        <img src="../../../../assets/img/2.jpeg" />
-        <span class="card-title">King-size</span>
+      <div class="card-action">
+        <a>{{room?.precio}}</a>
+        <button [routerLink]="['/reservacion', room._id]" class="btn right">Reservar</button>
       </div>
-      <div class="card-content">
-        <p>
-           1 cama matrimonial, Wifi, agua caliente, bañera
-        </p>
-      </div>
-      
-      <div class="card-action"><a >$400</a></div>
-    </div>
-  </div>
-  
-  <div class="col s12 m6 l3">
-    <div class="card small">
-      <div class="card-image">
-        <img src="../../../../assets/img/3.jpg" />
-        <span class="card-title">Presidencial</span>
-      </div>
-      <div class="card-content">
-        <p>
-         1 cama matrimonial, Wifi, agua caliente, bañera, frigobar, sala, no aplica fines de semana
-        </p>
-      </div>
-      <div class="card-action"><a href="#">$400</a></div>
     </div>
   </div>
 </div>

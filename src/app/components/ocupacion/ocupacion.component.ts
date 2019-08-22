@@ -1,17 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 import { OcupacionService } from '../../services/ocupacion.service';
-import { ForpagoService } from '../../services/forpago.service';
 import { HabitacionService } from '../../services/habitacion.service';
 import { NgForm } from '@angular/forms';
 import { Ocupacion } from '../../models/ocupacion';
-import { Forpago } from '../../models/forpago';
 import { Habitacion } from '../../models/habitacion';
 
 import { ReporteComponent } from './reporte/reporte.component'
-
-//observa desde forpago
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 declare var M: any;
 
@@ -19,34 +15,31 @@ declare var M: any;
   selector: 'app-ocupacion',
   templateUrl: './ocupacion.component.html',
     styleUrls: ['./ocupacion.component.css'],
-  providers: [OcupacionService, ForpagoService, HabitacionService, ReporteComponent]
+  providers: [OcupacionService, HabitacionService, ReporteComponent]
 })
 export class OcupacionComponent implements OnInit {
-  forpago: Forpago[] = [];
-  habitaciones: Habitacion[] = [];
+ 
+  habitaciones;
+  habitacion;
 
-  habitaciones$: Observable<Habitacion[]>;
-
-  constructor(public ocupacionService: OcupacionService, public forpagoService: ForpagoService, public habitacionService: HabitacionService, public reporteComponent: ReporteComponent) { }
+  constructor(public ocupacionService: OcupacionService, public habitacionService: HabitacionService, public reporteComponent: ReporteComponent,
+            public router: Router) { }
 
   ngOnInit() {
     this.getOcupaciones();
-    //this.habitacionService.getHabitaciones();
-    //this.forpagoService.getForpagos();
-    //this.habitaciones$ = this.habitacionService.getHabitacionesO();
-   // this.habitaciones$.subscribe(habitaciones => this.habitaciones = habitaciones);
     this.reporteComponent.generarPDF();
+    this.getHabitaciones();
   }
 
-  getForpagos() {
-    this.forpagoService.getForpagos()
+  getHabitaciones() {
+    this.habitacionService.getHabitaciones()
       .subscribe(res => {
-        this.forpagoService.forpago = res as Forpago[];
+        this.habitaciones = res as Habitacion[];
       });
   }
 
-  addOcupacion(form?: NgForm) {
-    console.log(form.value);
+  addOcupacion(form: NgForm) {
+    console.log(form.value.habitacion);
     if(form.value._id) {
       this.ocupacionService.putOcupacion(form.value)
         .subscribe(res => {
@@ -57,8 +50,17 @@ export class OcupacionComponent implements OnInit {
     } else {
       this.ocupacionService.postOcupacion(form.value)
       .subscribe(res => {
+        this.habitacionService.getHabitacion(form.value.habitacion)
+          .subscribe(res => {
+            this.habitacion = res as Habitacion;
+            this.habitacion.ocupacion = true;
+            this.habitacionService.putHabitacion(this.habitacion).subscribe(res => {
+              console.log("Se modifico el status")
+            })
+          });
         this.resetForm(form);
         M.toast({html: 'Guardado'});
+        this.router.navigateByUrl('/reporte');
         this.getOcupaciones();
       });
     }

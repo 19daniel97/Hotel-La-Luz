@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MaterialModule } from "./material.module";
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -37,6 +38,7 @@ import { OcupacionComponent } from './components/ocupacion/ocupacion.component';
 import { ReporteComponent } from './components/ocupacion/reporte/reporte.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactolistaComponent } from './components/contacto/contactolista/contactolista.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { ContactolistaComponent } from './components/contacto/contactolista/cont
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    routing
+    routing,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
