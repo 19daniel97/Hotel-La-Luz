@@ -64,12 +64,11 @@ export class ReporteComponent implements OnInit {
     this.ocupacionService.selectedOcupacion = ocupacion;
   }
 
-  deleteOcupacion(_id: string, form: NgForm) {
+  deleteOcupacion(_id: string) {
     if(confirm('¿Estas seguro de borrarlo?')) {
       this.ocupacionService.deleteOcupacion(_id)
         .subscribe(res => {
-          this.getOcupaciones();
-          
+          this.getOcupaciones();  
           M.toast({html: 'Eliminado'});
         });
     }
