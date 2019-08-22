@@ -18,6 +18,7 @@ declare var M: any;
 })
 export class ReporteComponent implements OnInit {
   habitaciones;
+  habitacion;
   constructor(public ocupacionService: OcupacionService, public habitacionService: HabitacionService) { }
 
   ngOnInit() {
@@ -63,14 +64,18 @@ export class ReporteComponent implements OnInit {
   editOcupacion(ocupacion: Ocupacion) {
     this.ocupacionService.selectedOcupacion = ocupacion;
   }
-
   deleteOcupacion(_id: string) {
-    if(confirm('¿Estas seguro de borrarlo?')) {
-      this.ocupacionService.deleteOcupacion(_id)
-        .subscribe(res => {
-          this.getOcupaciones();  
-          M.toast({html: 'Eliminado'});
-        });
+    if(confirm('¿Estas seguro de finalizar la reservacion?')) {
+      this.habitacionService.getHabitacion(_id)
+      .subscribe(res=>{
+        this.habitacion = res as Habitacion;
+        console.log(this.habitacion)
+        this.habitacion.ocupacion = false;
+        this.habitacionService.putHabitacion(this.habitacion).subscribe(res=>{
+          console.log("se modifico el estado de la habitacion")
+          M.toast({html:"habitacion desocupada"})
+        })
+      });
     }
   }
 

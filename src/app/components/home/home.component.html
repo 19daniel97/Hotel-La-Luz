@@ -27,10 +27,30 @@
         <div *ngIf="room.tipoh=='5d5c96015a495e0c3e7c1079'"><img src="/assets/img/hotel3.jpeg"/></div>
         <span class="card-title">
           <!-- CONDICION PARA TITULO -->
-          <div *ngIf="room.tipoh=='5d5c8e9e5a495e0c3e7c106e'">Normal</div>
-          <div *ngIf="room.tipoh=='5d5c8eb25a495e0c3e7c106f'">Doble</div>
-          <div *ngIf="room.tipoh=='5d5c95e15a495e0c3e7c1077'">King Size</div>
-          <div *ngIf="room.tipoh=='5d5c96015a495e0c3e7c1079'">Triple</div>
+          <div *ngIf="room.tipoh=='5d5c8e9e5a495e0c3e7c106e'">
+            <div>
+              <label *ngIf="room.ocupacion">Normal(Ocupado)</label>
+              <label *ngIf="!room.ocupacion">Normal</label>
+            </div>
+          </div>
+          <div *ngIf="room.tipoh=='5d5c8eb25a495e0c3e7c106f'">
+            <div>
+                <label *ngIf="room.ocupacion">Doble(Ocupado)</label>
+                <label *ngIf="!room.ocupacion">Doble</label>
+              </div>
+          </div>
+          <div *ngIf="room.tipoh=='5d5c95e15a495e0c3e7c1077'">
+            <div>
+                <label *ngIf="room.ocupacion">King Size(Ocupado)</label>
+                <label *ngIf="!room.ocupacion">King Size</label>
+            </div>
+          </div>
+          <div *ngIf="room.tipoh=='5d5c96015a495e0c3e7c1079'">
+            <div>
+                <label *ngIf="room.ocupacion">Triple (Ocupado)</label>
+                <label *ngIf="!room.ocupacion"> Triple</label>
+            </div>
+          </div>
         </span>
       </div>
       <div class="card-content">
@@ -41,7 +61,8 @@
       </div>
       <div class="card-action">
         <a>{{room?.precio}}</a>
-        <button [routerLink]="['/reservacion', room._id]" class="btn right">Reservar</button>
+        <div  *ngIf="room.ocupacion"><button disabled class="btn right">Reservar</button></div>
+        <div  *ngIf="!room.ocupacion"><button [routerLink]="['/reservacion', room._id]" class="btn right">Reservar</button></div>
       </div>
     </div>
   </div>
@@ -59,7 +80,7 @@
   
   <iframe
     src = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14851.244365859153!2d-101.2162866!3d21.4759277!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1aa91fd0af443d5a!2sHotel+la+Luz!5e0!3m2!1ses-419!2smx!4v1566179363495!5m2!1ses-419!2smx" 
-    width = " 100% "  height = " 450 "  frameborder = " 0 "  style = " border : 1 "  allowfullscreen >
+    width = " 100% "  height = " 500 "  frameborder = " 0 "  style = " border : 1 "  allowfullscreen >
   </iframe  >
 
 

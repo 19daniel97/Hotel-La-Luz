@@ -103,7 +103,6 @@ export class ReservacionComponent implements OnInit {
   getroom(){
     this.habitacionService.getHabitacion(this.idHabitacion).subscribe(res =>{
       this.room = res as Habitacion;
-      
     });
   }
 }
