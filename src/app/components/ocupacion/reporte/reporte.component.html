@@ -29,7 +29,7 @@
                   <td>{{ ocupacion.nombre }}</td>
                   <td>{{ ocupacion.telefono }}</td>
                   <td>
-                    <a routerLink="/ocupacion" routeLinkActive="active" (click)="editOcupacion(ocupacion)">
+                    <a (click)="editOcupacion(ocupacion)" routerLink="/ocupacion" routeLinkActive="active">
                       <i class="material-icons">edit</i>
                     </a>
                     <a (click)="deleteOcupacion(ocupacion._id)">
